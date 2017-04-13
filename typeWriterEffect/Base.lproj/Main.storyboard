@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina3_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="typeWriterEffect" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xUK-sQ-kfU" customClass="IHTypeWriterLabel" customModule="typeWriterEffect" customModuleProvider="target">
+                                <rect key="frame" x="124" y="230" width="72.5" height="21"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Label000">
+                                        <attributes>
+                                            <font key="NSFont" size="17" name=".AppleSystemUIFont"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="animationTime">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GDS-uN-29R">
+                                <rect key="frame" x="158" y="413" width="31" height="30"/>
+                                <state key="normal" title="stop"/>
+                                <connections>
+                                    <action selector="stop:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Qfi-cm-8wf"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tov-he-FgA">
+                                <rect key="frame" x="40" y="413" width="32" height="30"/>
+                                <state key="normal" title="start"/>
+                                <connections>
+                                    <action selector="start:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ooy-uy-a33"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="GDS-uN-29R" firstAttribute="top" secondItem="xUK-sQ-kfU" secondAttribute="bottom" constant="162" id="8Ca-lc-q7u"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="GDS-uN-29R" secondAttribute="bottom" constant="37" id="Du0-U6-lQ4"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="GDS-uN-29R" secondAttribute="trailing" constant="108" id="G4J-ev-NDY"/>
+                            <constraint firstItem="tov-he-FgA" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="393" id="Krg-YH-hbS"/>
+                            <constraint firstItem="tov-he-FgA" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="17" id="X9w-21-xFB"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="tov-he-FgA" secondAttribute="bottom" constant="37" id="f5p-xX-gmI"/>
+                            <constraint firstItem="GDS-uN-29R" firstAttribute="leading" secondItem="tov-he-FgA" secondAttribute="trailing" constant="71" id="kwU-s4-UGN"/>
+                            <constraint firstItem="xUK-sQ-kfU" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="re6-3f-Cwx"/>
+                            <constraint firstItem="xUK-sQ-kfU" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="uNb-3K-eND"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+</document>
