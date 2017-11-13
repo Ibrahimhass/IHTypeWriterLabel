@@ -16,23 +16,61 @@ import UIKit
             animationDuration = animationTime
         }
     }
-    override func awakeFromNib() {
-        self.animateLabelWithDuration()
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setUp()
     }
     
-
-
-    func animateLabelWithDuration()
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        setUp()
+    }
+    
+    private func setUp() {
+        self.preferredMaxLayoutWidth = self.bounds.width
+        let operation1 : BlockOperation = BlockOperation (block: {
+            self.animateLabelWithDuration()
+        })
+        operationQueue.addOperation(operation1)
+    }
+    
+    func pauseF()
     {
-        DispatchQueue.main.async {
+        operationQueue.isSuspended = true
+    }
+    func playF()
+    {
+        operationQueue.isSuspended = false
+    }
+
+    var operationQueue = OperationQueue()
+    
+    var pause : Bool = false {
+        didSet {
+            if (pause == true)
+            {
+                self.pauseF()
+            }
+            if (pause == false)
+            {
+                self.playF()
+            }
+        }
+    }
+
+    fileprivate func animateLabelWithDuration()
+    {
+         DispatchQueue.main.sync {
             let newText = self.text
             self.text = ""
             let characterDelay: TimeInterval = self.animationDuration / Double((newText?.characters.count)!)
             for (i,character) in (newText?.characters)!.enumerated() {
-                DispatchQueue.main.asyncAfter(deadline: .now() + characterDelay * Double(i)) {
+                
+            DispatchQueue.main.asyncAfter(deadline: .now() + characterDelay * Double(i)) {
                     self.text?.append(character)
-                    self.frame.size.height = (self.text?.height(withConstrainedWidth: self.frame.width, font: self.font))!
-                   
+                self.sizeToFit()
+                self.setNeedsUpdateConstraints()
                  }
             }
         if (self.attributedText != nil)
@@ -48,7 +86,10 @@ import UIKit
                 let tempAttrString = NSAttributedString.init(string: String(character), attributes: attributes)
                 combination1.append(tempAttrString)
                 self.attributedText = combination1
-                self.frame.size.height = (self.attributedText?.height(withConstrainedWidth: self.frame.size.width))!
+                    self.sizeToFit()
+                    self.setNeedsUpdateConstraints()
+
+//                self.frame.size.height = (self.attributedText?.height(withConstrainedWidth: self.frame.size.width))!
                 }
             }
         }
@@ -57,6 +98,7 @@ import UIKit
 }
 
 extension String {
+    
     func height(withConstrainedWidth width: CGFloat, font: UIFont) -> CGFloat {
         let constraintRect = CGSize(width: width, height: .greatestFiniteMagnitude)
         let boundingBox = self.boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [NSFontAttributeName: font], context: nil)
@@ -64,6 +106,7 @@ extension String {
         return boundingBox.height
     }
 }
+
 extension NSAttributedString {
     func height(withConstrainedWidth width: CGFloat) -> CGFloat {
         let constraintRect = CGSize(width: width, height: .greatestFiniteMagnitude)

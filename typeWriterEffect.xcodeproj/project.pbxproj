@@ -306,6 +306,7 @@
 				DBF254C81EA00670004E0C26 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
