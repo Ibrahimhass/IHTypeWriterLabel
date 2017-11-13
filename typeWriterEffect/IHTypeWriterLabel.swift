@@ -10,72 +10,75 @@ import UIKit
 
 @IBDesignable class IHTypeWriterLabel: UILabel {
 
-    var animationTime : Double!
-    
-    @IBInspectable var animationDuration: Double = 1.0 {
+    var animationDuration : TimeInterval = 1.0
+    @IBInspectable var animationTime: Double = 1.0 {
         didSet {
-            animationTime = animationDuration
-            setUp()
+            animationDuration = animationTime
         }
     }
     
-    fileprivate var notUsingAutoLayout : Bool = false
-    
     override init(frame: CGRect) {
-        notUsingAutoLayout = true
         super.init(frame: frame)
+        setUp()
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        if (notUsingAutoLayout) {
-            if (self.preferredMaxLayoutWidth != self.bounds.width) {
-                self.preferredMaxLayoutWidth = self.bounds.size.width
-            }
-        }
+        setUp()
     }
     
     private func setUp() {
-        if (!notUsingAutoLayout){
-            self.preferredMaxLayoutWidth = self.bounds.width
-        }
+        self.preferredMaxLayoutWidth = self.bounds.width
         let operation1 : BlockOperation = BlockOperation (block: {
             self.animateLabelWithDuration()
         })
         operationQueue.addOperation(operation1)
     }
+    
+    func pauseF()
+    {
+        operationQueue.isSuspended = true
+    }
+    func playF()
+    {
+        operationQueue.isSuspended = false
+    }
 
     var operationQueue = OperationQueue()
+    
+    var pause : Bool = false {
+        didSet {
+            if (pause == true)
+            {
+                self.pauseF()
+            }
+            if (pause == false)
+            {
+                self.playF()
+            }
+        }
+    }
 
     fileprivate func animateLabelWithDuration()
     {
          DispatchQueue.main.sync {
             let newText = self.text
             self.text = ""
-            let characterDelay: TimeInterval = self.animationTime / Double((newText?.characters.count)!)
+            let characterDelay: TimeInterval = self.animationDuration / Double((newText?.characters.count)!)
             for (i,character) in (newText?.characters)!.enumerated() {
                 
             DispatchQueue.main.asyncAfter(deadline: .now() + characterDelay * Double(i)) {
                     self.text?.append(character)
-                if (!self.notUsingAutoLayout) {
-                    self.sizeToFit()
-                    self.setNeedsUpdateConstraints()
-                }
-                else {
-                    self.frame.size.height = (self.text?.height(withConstrainedWidth: self.bounds.width, font: self.font))!
-                }
-             }
+                self.sizeToFit()
+                self.setNeedsUpdateConstraints()
+                 }
             }
         if (self.attributedText != nil)
         {
             let combination = NSMutableAttributedString.init(attributedString: self.attributedText!)
             let combination1 = NSMutableAttributedString.init()
             self.attributedText = NSMutableAttributedString.init(string: "")
-            let characterDelay : TimeInterval = self.animationTime / Double(combination.length)
+            let characterDelay : TimeInterval = self.animationDuration / Double(combination.length)
             for (index, character) in (combination.string.characters).enumerated() {
                 DispatchQueue.main.asyncAfter(deadline: .now() + characterDelay * Double(index)) {
                 let rangePointer : NSRangePointer = NSRangePointer.allocate(capacity: 1)
@@ -83,19 +86,15 @@ import UIKit
                 let tempAttrString = NSAttributedString.init(string: String(character), attributes: attributes)
                 combination1.append(tempAttrString)
                 self.attributedText = combination1
-                    
-                    if (!self.notUsingAutoLayout) {
-                        self.sizeToFit()
-                        self.setNeedsUpdateConstraints()
-                    }
-                    else {
-                        self.frame.size.height = (self.text?.height(withConstrainedWidth: self.bounds.width, font: self.font))!
-                        }
-                    }
+                    self.sizeToFit()
+                    self.setNeedsUpdateConstraints()
+
+//                self.frame.size.height = (self.attributedText?.height(withConstrainedWidth: self.frame.size.width))!
                 }
             }
         }
     }
+}
 }
 
 extension String {
@@ -114,5 +113,12 @@ extension NSAttributedString {
         let boundingBox = boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, context: nil)
         
         return boundingBox.height
+    }
+    
+    func width(withConstrainedHeight height: CGFloat) -> CGFloat {
+        let constraintRect = CGSize(width: .greatestFiniteMagnitude, height: height)
+        let boundingBox = boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, context: nil)
+        
+        return boundingBox.width
     }
 }

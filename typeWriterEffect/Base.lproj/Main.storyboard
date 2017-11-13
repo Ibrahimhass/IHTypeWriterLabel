@@ -39,22 +39,31 @@
                                     <userDefinedRuntimeAttribute type="number" keyPath="animationTime">
                                         <real key="value" value="5"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="animationDuration">
-                                        <real key="value" value="15"/>
-                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BNW-PQ-2Yo">
+                                <rect key="frame" x="35" y="297" width="250" height="128"/>
+                                <color key="backgroundColor" red="0.72941176470000002" green="0.1610280275" blue="0.1210218742" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="EIE-MJ-aUP"/>
+                                    <constraint firstAttribute="height" constant="128" id="Mqc-Nh-H5A"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="BNW-PQ-2Yo" firstAttribute="top" secondItem="xUK-sQ-kfU" secondAttribute="bottom" constant="26.5" id="h9V-MA-sbk"/>
                             <constraint firstItem="xUK-sQ-kfU" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="re6-3f-Cwx"/>
                             <constraint firstItem="xUK-sQ-kfU" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="uNb-3K-eND"/>
+                            <constraint firstItem="BNW-PQ-2Yo" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="wHm-WV-8bA"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="labelRef" destination="xUK-sQ-kfU" id="Fns-xn-kRr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="630" y="340"/>
         </scene>
     </scenes>
 </document>
