@@ -57,9 +57,6 @@ import UIKit
     fileprivate func animateLabelWithDuration()
     {
         DispatchQueue.main.sync {
-//        let range = NSRange()
-//        self.attributedText?.attributes(at: 0, effectiveRange: range as? NSRangePointer)
-//        var isAttributed: Bool = self.text?.count == range.length
             if (!self.isAttributed) {
                 let newText = self.text
                 self.text = ""
