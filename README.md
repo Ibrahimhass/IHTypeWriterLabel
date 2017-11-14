@@ -21,7 +21,7 @@ You can add IHTypeWriterLabel to your project in a few ways:
 The way to use IHTypeWriterLabel is to download the IHTypeWriterLabel class file in your project as is and use.
 
 # ScreenShot
-![labeldemo](https://user-images.githubusercontent.com/16992520/32742620-01b9cc32-c8d0-11e7-861f-6b01819cabf3.gif)
+![mygithubvideo](https://user-images.githubusercontent.com/16992520/32800536-9be5371c-c9a0-11e7-90e4-9cda07dd3287.gif)
 # Usage
 
 ## StoryBoard
