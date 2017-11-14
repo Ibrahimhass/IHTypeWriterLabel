@@ -27,6 +27,13 @@ class ViewController: UIViewController {
     @IBOutlet weak var labelRef: IHTypeWriterLabel!
     override func viewDidLoad() {
         super.viewDidLoad()
+        let ihLabel = IHTypeWriterLabel.init(frame: CGRect.init(x: 0, y: 100, width: 200, height: 300))
+        ihLabel.numberOfLines = 0
+        ihLabel.animationTime = 5.0
+        ihLabel.text = "Hello. Hope you like this implementation. Happy Coding. Have a nice day. Thank you. :)"
+
+        self.view.addSubview(ihLabel)
+
         // Do any additional setup after loading the view, typically from a nib.
     }
 }

@@ -31,8 +31,11 @@ import UIKit
         }
     }
     
+    fileprivate var usingRect : Bool = false
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
+        usingRect = true
         setUp()
     }
     
@@ -40,6 +43,8 @@ import UIKit
         super.init(coder: aDecoder)
         setUp()
     }
+    
+    var operationQueue = OperationQueue()
     
     private func setUp() {
         self.preferredMaxLayoutWidth = self.bounds.width
@@ -49,67 +54,71 @@ import UIKit
         operationQueue.addOperation(operation1)
     }
     
-    func pauseF()
-    {
-        operationQueue.isSuspended = true
-    }
-    func playF()
-    {
-        operationQueue.isSuspended = false
-    }
-
-    var operationQueue = OperationQueue()
-    
-    var pause : Bool = false {
-        didSet {
-            if (pause == true)
-            {
-                self.pauseF()
-            }
-            if (pause == false)
-            {
-                self.playF()
-            }
-        }
-    }
-
     fileprivate func animateLabelWithDuration()
     {
-         DispatchQueue.main.sync {
-            let newText = self.text
-            self.text = ""
-            let characterDelay: TimeInterval = self.animationDuration / Double((newText?.characters.count)!)
-            for (i,character) in (newText?.characters)!.enumerated() {
-                
-            DispatchQueue.main.asyncAfter(deadline: .now() + characterDelay * Double(i)) {
-                    self.text?.append(character)
-                self.sizeToFit()
-                self.setNeedsUpdateConstraints()
-                 }
-            }
-        if (self.attributedText != nil)
-        {
-            let combination = NSMutableAttributedString.init(attributedString: self.attributedText!)
-            let combination1 = NSMutableAttributedString.init()
-            self.attributedText = NSMutableAttributedString.init(string: "")
-            let characterDelay : TimeInterval = self.animationDuration / Double(combination.length)
-            for (index, character) in (combination.string.characters).enumerated() {
-                DispatchQueue.main.asyncAfter(deadline: .now() + characterDelay * Double(index)) {
-                let rangePointer : NSRangePointer = NSRangePointer.allocate(capacity: 1)
-                let attributes = combination.attributes(at: index, effectiveRange: rangePointer)
-                let tempAttrString = NSAttributedString.init(string: String(character), attributes: attributes)
-                combination1.append(tempAttrString)
-                self.attributedText = combination1
-                    self.sizeToFit()
-                    self.setNeedsUpdateConstraints()
+        DispatchQueue.main.sync {
+//        let range = NSRange()
+//        self.attributedText?.attributes(at: 0, effectiveRange: range as? NSRangePointer)
+//        var isAttributed: Bool = self.text?.count == range.length
+            if (!self.isAttributed) {
+                let newText = self.text
+                self.text = ""
+                let characterDelay: TimeInterval = self.animationDuration / Double((newText?.characters.count)!)
+                for (i,character) in (newText?.characters)!.enumerated() {
 
-//                self.frame.size.height = (self.attributedText?.height(withConstrainedWidth: self.frame.size.width))!
+                    DispatchQueue.main.asyncAfter(deadline: .now() + characterDelay * Double(i)) {
+                        self.text?.append(character)
+                        if (!self.usingRect){
+                            self.sizeToFit()
+                            self.setNeedsUpdateConstraints()
+                        }
+                        else  {
+                            self.frame.size.height = (self.text?.height(withConstrainedWidth: self.bounds.width, font: self.font))!
+                        }
+                    }
+                }
+            }
+            else if (self.isAttributed){
+                let combination = NSMutableAttributedString.init(attributedString: self.attributedText!)
+                    let combination1 = NSMutableAttributedString.init()
+                    self.attributedText = NSMutableAttributedString.init(string: "")
+                    let characterDelay : TimeInterval = self.animationDuration / Double(combination.length)
+                    for (index, character) in (combination.string.characters).enumerated() {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + characterDelay * Double(index)) {
+                            let rangePointer : NSRangePointer = NSRangePointer.allocate(capacity: 1)
+                            let attributes = combination.attributes(at: index, effectiveRange: rangePointer)
+                            let tempAttrString = NSAttributedString.init(string: String(character), attributes: attributes)
+                            combination1.append(tempAttrString)
+                            self.attributedText = combination1
+                            if (!self.usingRect) {
+                                self.sizeToFit()
+                                self.setNeedsUpdateConstraints()
+                            }
+                            else {
+                                self.frame.size.height = (self.attributedText?.height(
+                                    withConstrainedWidth: self.frame.size.width))!
+                            }
+                        }
+                    }
                 }
             }
         }
+//    }
+    
+}
+
+extension UILabel {
+    var isAttributed: Bool {
+        guard let attributedText = attributedText else { return false }
+        let range = NSMakeRange(0, attributedText.length)
+        var allAttributes = [Dictionary<String, Any>]()
+        attributedText.enumerateAttributes(in: range, options: []) { attributes, _, _ in
+            allAttributes.append(attributes)
+        }
+        return allAttributes.count > 1
     }
 }
-}
+
 
 extension String {
     
@@ -122,6 +131,7 @@ extension String {
 }
 
 extension NSAttributedString {
+    
     func height(withConstrainedWidth width: CGFloat) -> CGFloat {
         let constraintRect = CGSize(width: width, height: .greatestFiniteMagnitude)
         let boundingBox = boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, context: nil)
@@ -129,10 +139,4 @@ extension NSAttributedString {
         return boundingBox.height
     }
     
-    func width(withConstrainedHeight height: CGFloat) -> CGFloat {
-        let constraintRect = CGSize(width: .greatestFiniteMagnitude, height: height)
-        let boundingBox = boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, context: nil)
-        
-        return boundingBox.width
-    }
 }

@@ -21,28 +21,91 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xUK-sQ-kfU" customClass="IHTypeWriterLabel" customModule="typeWriterEffect" customModuleProvider="target">
-                                <rect key="frame" x="35" y="209.5" width="250" height="61"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uvk-fm-8SG">
+                                <rect key="frame" x="30.5" y="149.5" width="260" height="181.5"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="250" translatesAutoresizingMaskIntoConstraints="NO" id="xUK-sQ-kfU" customClass="IHTypeWriterLabel" customModule="typeWriterEffect" customModuleProvider="target">
+                                        <rect key="frame" x="8" y="8" width="244" height="165.5"/>
+                                        <color key="backgroundColor" red="1" green="0.70990668402777779" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="Hello. ">
+                                                <attributes>
+                                                    <font key="NSFont" size="17" name=".AppleSystemUIFont"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content="Hope">
+                                                <attributes>
+                                                    <font key="NSFont" size="17" name="LucidaHandwriting-Italic"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content=" you like ">
+                                                <attributes>
+                                                    <font key="NSFont" size="17" name=".AppleSystemUIFont"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content="this">
+                                                <attributes>
+                                                    <font key="NSFont" size="17" name="MaturaMTScriptCapitals"/>
+                                                    <font key="NSOriginalFont" size="17" name="MaturaMTScriptCapitals"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content=" ">
+                                                <attributes>
+                                                    <font key="NSFont" size="17" name=".AppleSystemUIFont"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content="implementation">
+                                                <attributes>
+                                                    <color key="NSBackgroundColor" red="1" green="0.27332899305555558" blue="0.68248155381944442" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <font key="NSFont" size="17" name="LucidaSans"/>
+                                                    <font key="NSOriginalFont" size="17" name="LucidaSans"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content=". ">
+                                                <attributes>
+                                                    <font key="NSFont" size="17" name=".AppleSystemUIFont"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content="Happy">
+                                                <attributes>
+                                                    <color key="NSColor" red="1" green="0.876953125" blue="0.68248155381944442" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <font key="NSFont" size="72" name=".SFNSDisplay"/>
+                                                    <font key="NSOriginalFont" size="72" name=".SFNSDisplay"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content=" Coding. Have a nice day. Thank you. :)">
+                                                <attributes>
+                                                    <font key="NSFont" size="17" name=".AppleSystemUIFont"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="animationTime">
+                                                <real key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.78823529410000004" green="0.36470588240000001" blue="0.35294117650000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="250" id="PmO-40-UQa"/>
+                                    <constraint firstItem="xUK-sQ-kfU" firstAttribute="leading" secondItem="Uvk-fm-8SG" secondAttribute="leading" constant="8" id="LR9-j7-rMT"/>
+                                    <constraint firstAttribute="bottom" secondItem="xUK-sQ-kfU" secondAttribute="bottom" constant="8" id="M8v-be-dtV"/>
+                                    <constraint firstAttribute="trailing" secondItem="xUK-sQ-kfU" secondAttribute="trailing" constant="8" id="Y7C-5b-XM3"/>
+                                    <constraint firstItem="xUK-sQ-kfU" firstAttribute="top" secondItem="Uvk-fm-8SG" secondAttribute="top" constant="8" id="Yz5-xy-9Cz"/>
                                 </constraints>
-                                <attributedString key="attributedText">
-                                    <fragment content="Hello. Hope you like this implementation. Happy Coding. Have a nice day. Thank you. :)">
-                                        <attributes>
-                                            <font key="NSFont" size="17" name=".AppleSystemUIFont"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
-                                <nil key="highlightedColor"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="animationTime">
-                                        <real key="value" value="5"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </label>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BNW-PQ-2Yo">
-                                <rect key="frame" x="35" y="297" width="250" height="128"/>
+                                <rect key="frame" x="35" y="349" width="250" height="128"/>
                                 <color key="backgroundColor" red="0.72941176470000002" green="0.1610280275" blue="0.1210218742" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="250" id="EIE-MJ-aUP"/>
@@ -52,9 +115,9 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="BNW-PQ-2Yo" firstAttribute="top" secondItem="xUK-sQ-kfU" secondAttribute="bottom" constant="26.5" id="h9V-MA-sbk"/>
-                            <constraint firstItem="xUK-sQ-kfU" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="re6-3f-Cwx"/>
-                            <constraint firstItem="xUK-sQ-kfU" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="uNb-3K-eND"/>
+                            <constraint firstItem="Uvk-fm-8SG" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Zkr-3N-4XT"/>
+                            <constraint firstItem="BNW-PQ-2Yo" firstAttribute="top" secondItem="Uvk-fm-8SG" secondAttribute="bottom" constant="18" id="iYv-eG-CcN"/>
+                            <constraint firstItem="Uvk-fm-8SG" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="oxp-XG-hOG"/>
                             <constraint firstItem="BNW-PQ-2Yo" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="wHm-WV-8bA"/>
                         </constraints>
                     </view>
@@ -64,6 +127,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="951" y="-50"/>
         </scene>
     </scenes>
 </document>

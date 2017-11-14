@@ -2,4 +2,70 @@
 <Bucket
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "typeWriterEffect/IHTypeWriterLabel.swift"
+            timestampString = "532379271.583048"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "82"
+            endingLineNumber = "82"
+            landmarkName = "animateLabelWithDuration()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "typeWriterEffect/IHTypeWriterLabel.swift"
+            timestampString = "532379271.58318"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
+            landmarkName = "animateLabelWithDuration()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in typeWriterEffect.IHTypeWriterLabel.(animateLabelWithDuration in _56F75F6F9695D602D2D90AD1E1FEE618)() -&gt; ()"
+                  moduleName = "typeWriterEffect"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mdibrahimhassan/Desktop/typeWriterEffect/typeWriterEffect/IHTypeWriterLabel.swift"
+                  timestampString = "532379194.703099"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "67"
+                  endingLineNumber = "67"
+                  offsetFromSymbolStart = "895">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in typeWriterEffect.IHTypeWriterLabel.(animateLabelWithDuration in _56F75F6F9695D602D2D90AD1E1FEE618)() -&gt; ()"
+                  moduleName = "typeWriterEffect"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mdibrahimhassan/Desktop/typeWriterEffect/typeWriterEffect/IHTypeWriterLabel.swift"
+                  timestampString = "532379194.708349"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "67"
+                  endingLineNumber = "67"
+                  offsetFromSymbolStart = "4400">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>
